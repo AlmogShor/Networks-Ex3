@@ -4,7 +4,7 @@ import sys  # In order to terminate the program
 
 serverSocket = socket(AF_INET, SOCK_STREAM)
 # Prepare a sever socket
-server_port = 80
+server_port = 8080
 serverSocket.bind(('', server_port))
 serverSocket.listen(1)
 print("the server is ready receive")
@@ -13,7 +13,7 @@ while True:
     # Establish the connection
     print('Ready to serve...')
     connectionSocket, addr = serverSocket.accept()
-    print("connected from" + addr)
+    # print("connected from" + addr)
     try:
         message = connectionSocket.recv(1024).decode()
         filename = message.split()[1]
