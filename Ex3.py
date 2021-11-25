@@ -15,10 +15,11 @@ while True:
     connectionSocket, addr = serverSocket.accept()
     # print("connected from" + addr)
     try:
-        message = connectionSocket.recv(1024).decode()
+        message = connectionSocket.recv(2048).decode()
         filename = message.split()[1]
         f = open(filename[1:])
         outputdata = f.read()
+        f.close()
         # Send one HTTP header line into socket
         serverSocket.send('https/1.1 200 OK\r\n\r\n'.encode())
         # Send the content of the requested file to the client
