@@ -22,7 +22,7 @@ while True:
         f.close()
         # Send one HTTP header line into socket
         connectionSocket.send('\nHTTP/1.1 200 OK\n'.encode())
-        connectionSocket.send('Content-Type: text/html\n\n'.encode())
+        connectionSocket.send("Content-Type: text/html\n\n".encode())
 
         # Send the content of the requested file to the client
         for i in range(0, len(outputdata)):
@@ -31,7 +31,7 @@ while True:
         connectionSocket.close()
     except IOError:
         # Send response message for file not fou
-        connectionSocket.send('\nHTTP/1.1 404 not found\n'.encode())
+        connectionSocket.send("\nHTTP/1.1 404 not found\n".encode())
         # Close client socket
         connectionSocket.close()
 serverSocket.close()
