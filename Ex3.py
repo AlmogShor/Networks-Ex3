@@ -5,7 +5,7 @@ import sys  # In order to terminate the program
 
 serverSocket = socket(AF_INET, SOCK_STREAM)
 # Prepare a sever socket
-server_port = 7777
+server_port = 6789
 serverSocket.bind(('', server_port))
 serverSocket.listen(1)
 print("the server is ready receive")
@@ -34,5 +34,5 @@ while True:
         connectionSocket.send('\nHTTP/1.1 404 not found\n'.encode())
         # Close client socket
         connectionSocket.close()
-    serverSocket.close()
-    sys.exit()  # Terminate the program after sending the corresponding data
+serverSocket.close()
+sys.exit()  # Terminate the program after sending the corresponding data
